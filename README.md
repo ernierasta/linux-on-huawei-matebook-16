@@ -43,6 +43,6 @@ Create /usr/lib/udev/rules.d/99-i2c-no-powersave.rules (or in /etc/udev if your 
 
 ## That's all for now
 
-Hope this helps you to enjoy your Linux experience on Huawei Matebook 16. I like quality/price ration and for me screen format (3:2) is amazing, you can fit a lot of text on the screen, so great for programming.
+Hope this helps you to enjoy your Linux experience on Huawei Matebook 16. I like quality/price ratio and for me screen format (3:2) is amazing, you can fit a lot of text on the screen, so great for programming.
 
 It would be amazing if you open an issue or PR if you have any additional on HW support on this devices!
