@@ -33,7 +33,7 @@ Create /usr/lib/udev/rules.d/99-i2c-no-powersave.rules (or in /etc/udev if your 
 
 `ACTION=="add", SUBSYSTEM=="i2c", ATTR{power/control}="on"`
 
-**Tested**: Also looks it like it works! But I am not very enthusiastic right now, as in past it also looked like problem solved ... until it happend again. Will update info here.
+**Tested**: ~~Also looks it like it works! But I am not very enthusiastic right now, as in past it also looked like problem solved ... until it happend again. Will update info here.~~ UPDATE: It doesn't work. Maybe it helps a bit, but I doubt it, it was just coincident that it was ok for 2 days.
 
 ## No real sleep on current kernel version
 
