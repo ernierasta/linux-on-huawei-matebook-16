@@ -20,7 +20,8 @@ Create **/usr/lib/udev/rules.d/99-usb-input-no-powersave-fix-bt.rules** (some di
 `ACTION=="add", SUBSYSTEM=="input", TEST=="power/control", ATTR{power/control}="on"`
 
 **Tested**: Looks promissing, but I will update info here after few days/week, as I am not sure, this is a solution.
-**UPDATE**: It seems that this really solves problem with bluetooth, no problem for few days. If I will not add another update - consider it solved!
+**UPDATE**: ~~It seems that this really solves problem with bluetooth, no problem for few days. If I will not add another update - consider it solved!~~
+**UPDATE2**: Unfortunately bluetooth still has problems from time to time.
 
 ## Dying touchpad aka most annoying problem ever
 
