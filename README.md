@@ -13,35 +13,41 @@ Also usuing `sudo rfkill` will return no bluetooth adapter.
 
 **Solution**: Disable power saving for USB.
 
-**What you should do**: 
+**What you should do**:
 
 Create **/usr/lib/udev/rules.d/99-usb-input-no-powersave-fix-bt.rules** (some distros have rules in `/etc`, so put it there if it is your case) with content:
 
 `ACTION=="add", SUBSYSTEM=="input", TEST=="power/control", ATTR{power/control}="on"`
 
 **Tested**: Looks promissing, but I will update info here after few days/week, as I am not sure, this is a solution.
+
 **UPDATE**: ~~It seems that this really solves problem with bluetooth, no problem for few days. If I will not add another update - consider it solved!~~
+
 **UPDATE2**: Unfortunately bluetooth still has problems from time to time.
 
 ## Dying touchpad aka most annoying problem ever
 
 **Problem**: In most unconvinient time - touchpad will stop working. No response, no way to bring it back (nothing works, removing/readding kernel modules, unbinding/binding to i2c driver, ...). Every time it happens it kills you a bit inside :-). Notebook restart brings it back. It is probably somehow related to battery charging/protection. Usualy hitting upper limit will kill touchpad. Also keeping notebook on charger will cause it.
 
-**Solution**: I studied a lot of different sources of kernel modules, tried to look into ACPI tables ... I failed misserably. It looked like there is no solution. But then I tried disabling powersaving on i2c devices ...
+**UPDATE**: THIS IS VOIDLINUX ISSUE. Comments of amazing people from internet pointed me to the right direction. It is Void specific problem (kernel?). I can confirm, that Archlinux doesn't have this problem. I am using Archlinux (actually it is Artix Linux with dinit, zen kernel) for week and it never happened.
 
-**What you should do**:
+**Solution**: Look above, for now, swith to other distribution is an "easy" solution. ~~I studied a lot of different sources of kernel modules, tried to look into ACPI tables ... I failed misserably. It looked like there is no solution. But then I tried disabling powersaving on i2c devices ...~~
 
-Create /usr/lib/udev/rules.d/99-i2c-no-powersave.rules (or in /etc/udev if your distro has it) with content:
+~~**What you should do**:~~
 
-`ACTION=="add", SUBSYSTEM=="i2c", ATTR{power/control}="on"`
+~~Create /usr/lib/udev/rules.d/99-i2c-no-powersave.rules (or in /etc/udev if your distro has it) with content:~~
 
-**Tested**: ~~Also looks it like it works! But I am not very enthusiastic right now, as in past it also looked like problem solved ... until it happend again. Will update info here.~~ UPDATE: It doesn't work. Maybe it helps a bit, but I doubt it, it was just coincident that it was ok for 2 days.
+~~`ACTION=="add", SUBSYSTEM=="i2c", ATTR{power/control}="on"`~~
+
+~~**Tested**: ~~Also looks it like it works! But I am not very enthusiastic right now, as in past it also looked like problem solved ... until it happend again. Will update info here.~~ UPDATE: It doesn't work. Maybe it helps a bit, but I doubt it, it was just coincident that it was ok for 2 days.~~
 
 ## No real sleep on current kernel version
 
 **Problem**: I am on linux kernel 6.1.4 and sleep is not working. It looks like it is working, but then some instant messaging apps starts happily beep while it "sleeps", also battery drain is quite high. From what I saw we cannot acheve deep sleep on memory ...
 
 **Solution**: Just start using hibernation, longer stop/start times, but good battery presservation.
+
+**UPDATE**: It looks like, in Archlinux/Artix Linux - it is working fine!
 
 ## That's all for now
 
